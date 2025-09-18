@@ -35,7 +35,7 @@ For full details, [Methodology PDF](Methodology.pdf).
 ## Project Structure
 
 - **Notebooks:**
-  - [01. Statistical characterization of LOS predictors.ipynb](01.%20Statistical%20characterization%20of%20LOS%20predictors.ipynb): Univariate/bivariate analysis, GLM baseline (Poisson/NB).
+  - [01. Notebook 01 - Statistical characterization of LOS.ipynb](01.%20Statistical%20characterization%20of%20LOS%20predictors.ipynb): Univariate/bivariate analysis, GLM baseline (Poisson/NB).
   - [02. Development and validation of predictive machine learning models.ipynb](02.%20Development%20and%20validation%20of%20predictive%20machine%20learning%20models.ipynb): Ensemble models, hyperparameter tuning, cross-validation.
   - [03. Derivation of operational insights and policy implications.ipynb](03.%20Derivation%20of%20operational%20insights%20and%20policy%20implications.ipynb): SHAP explanations, business insights.
   - [04. Deployment readiness and integration.ipynb](04.%20Deployment%20readiness%20and%20integration.ipynb): Model persistence (Pickle/Joblib), pipeline integration.
