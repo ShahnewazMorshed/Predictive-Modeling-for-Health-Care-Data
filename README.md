@@ -1,25 +1,43 @@
-# Predicting Patient Length of Stay (LOS) for Efficient Hospital Management
+# Predictive Modeling of Hospital Length of Stay (LOS) Using Statistical and Machine Learning Approaches
 
-**Author**: Mohammad Shahnewaz Morshed  
-**Date**: 10 March 2024
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
-## Abstract
-A statistical framework was developed to predict hospital **Length of Stay (LOS)** at admission, a critical, discrete, and non-negative outcome in healthcare management. To address the right-skewed distribution and overdispersion characteristic of LOS data, tailored count-based models were employed to account for greater variability than standard approaches permit. Additionally, mixture models were integrated to capture the frequent occurrence of short stays, such as same-day or one-day admissions, ensuring accurate differentiation from longer hospitalizations. These methodological enhancements significantly improved prediction accuracy and provided well-calibrated forecasts, supporting robust hospital resource planning.
+**Author:** Mohammad Shahnewaz Morshed  
+**Date:** 10 March 2024  
 
-## Problem Formulation
-Length of Stay (LOS) is defined as the number of calendar days between admission and discharge. Statistically, LOS is a non-negative, discrete outcome. Empirically, LOS exhibits right skewness and overdispersion, where the variance exceeds the mean. Ignoring these properties leads to inefficient estimates and biased predictions, resulting in misallocation of hospital resources.
+---
+
+A statistical framework was developed to predict how long patients are likely to stay in the hospital at the time they are admitted. This matters because length of stay (LOS) affects how hospitals plan for beds, staff schedules, medicines, and supplies. Hospital stays are always counted in whole days, and the data usually show a right-skewed pattern: most patients stay only a few days, but some stay much longer. Traditional models often struggle with this kind of data because the variation (spread of values) is greater than the average stay. To handle this, special count-based models were applied that can cope with extra variability. In addition, the data showed that a large number of patients had very short stays, such as same-day or one-day discharges. To capture this, mixture models (zero-inflated approaches) were used, which can separate these short stays from the longer ones. By combining these methods, the framework produced more accurate predictions. These forecasts can help hospitals make smarter decisions about resource allocation, reduce overcrowding, and improve both patient care and operational efficiency.
+
+---
+
+## Objectives
+
+- Describe the distribution of hospital length of stay (LOS) and identify key statistical features such as skewness, overdispersion, and short stays.
+
+- Develop predictive models using both statistical (Poisson, Negative Binomial, Zero-Inflated) and machine learning methods (Random Forest, Gradient Boosting, XGBoost).
+
+- Evaluate model performance and interpretability with accuracy metrics and Shapley-based explanations of predictor importance.
+
+- Translate predictions into operational insights for effective planning and operational efficiency.
+
+---
 
 ## Methodology
 
-### Statistical Characterization of LOS Predictors
-The modeling approach was initially formulated using Poisson regression, recognized as the standard model for count outcomes due to its simplicity and ability to ensure non-negative predictions with interpretable coefficients. However, an empirical analysis of the LOS variable was conducted, revealing that the sample variance substantially exceeded the sample mean, indicating overdispersion. This condition causes underestimated standard errors and inflated error rates in Poisson regression. Consequently, the model was extended to a Negative Binomial specification to accommodate greater variability and provide more reliable inference when patient heterogeneity increases variance.
+The analysis first employed Poisson regression as the canonical model for count data, extended to Negative Binomial for overdispersion handling, and Zero-Inflated variants for excess short stays. Penalized regression (LASSO/Elastic Net) is applied for feature selection in high-dimensional spaces. Tree-based ensemble learning approaches were applied to capture complex nonlinear patterns.
 
-Further examination of the distribution was performed, indicating a higher frequency of very short stays, such as same-day or near-zero discharges, than predicted by standard models. A Zero-Inflated model was therefore adopted to capture the excess occurrence of short stays without distorting the overall distribution. Additionally, the predictor space, which included high-dimensional categorical variables like physician identifiers and ward codes, was addressed through penalized regression methods. The Least Absolute Shrinkage and Selection Operator (LASSO) was applied to select influential predictors and reduce overfitting by enforcing sparsity. The Elastic Net was also employed, combining sparsity with grouping and stability properties, particularly suitable for correlated predictors.
+For full details, [Methodology PDF](Methodology.pdf).
 
-Model interpretability was improved through the application of Shapley value decomposition, derived from cooperative game theory. For each patient, the predicted LOS was decomposed to quantify the contribution of each predictor, calculated across all possible feature combinations. This method was selected for its rigorous, distribution-based measure of predictor importance, ensuring consistency across diverse model classes and delivering locally accurate attributions at the individual prediction level. Unlike regression coefficients, which rely on linearity assumptions, Shapley value decomposition maintains additive and comparable contributions, even in nonlinear models.
+---
 
-### Development and Validation of Predictive ML Models: Capturing Nonlinearities and Interactions
-To effectively model the complex, nonlinear relationships and interactions among predictors influencing hospital Length of Stay (LOS), tree-based ensemble methods, including Random Forest (RF), Gradient Boosting Machine (GBM), and Extreme Gradient Boosting (XGBoost), were employed. These models were trained and validated using k-fold Grouped Cross-Validation (CV) with grouping by patient ID to prevent information leakage across multiple admissions of the same patient, ensuring robust and unbiased performance estimates. Model performance was evaluated using standard regression metrics, namely Root Mean Square Error (RMSE), Mean Absolute Error (MAE), and the coefficient of determination (R-squared), to assess prediction accuracy and goodness-of-fit. Additionally, to explore classification performance, LOS was optionally discretized into categorical bins, enabling the assessment of Area Under the Receiver Operating Characteristic Curve (AUROC) and F1-score for predictive discrimination and balance between precision and recall. Calibration diagnostics, such as reliability curves, were incorporated to verify the alignment between predicted and observed LOS values, ensuring the reliability of probabilistic forecasts for operational use.
+## Project Structure
 
-### Operational Insights and Policy Implications
-Predictions were translated into actionable insights to optimize hospital resource allocation. Average Marginal Effects (AMEs), Partial Dependence, and SHAP interaction effects were computed to quantify the impact of operational levers, such as staffing levels and bed capacity, on Length of Stay (LOS). AMEs were used to estimate the average change in LOS associated with a unit change in a predictor, providing a clear measure for resource planning. Partial Dependence analyses were conducted to illustrate how individual predictors influence LOS across their range, offering insights into their marginal effects. SHAP interaction effects were analyzed to capture the combined impacts of predictor pairs, enhancing the interpretability of complex relationships. Additionally, scenario analyses were performed to simulate changes in LOS under hypothetical resource allocation scenarios, such as increased staffing or bed availability. These analyses, while informative, were associational in nature and require integration with causal inference methods to establish definitive causal relationships.
+- **Notebooks:**
+  - [01. Statistical characterization of LOS predictors.ipynb](01.%20Statistical%20characterization%20of%20LOS%20predictors.ipynb): Univariate/bivariate analysis, GLM baseline (Poisson/NB).
+  - [02. Development and validation of predictive machine learning models.ipynb](02.%20Development%20and%20validation%20of%20predictive%20machine%20learning%20models.ipynb): Ensemble models, hyperparameter tuning, cross-validation.
+  - [03. Derivation of operational insights and policy implications.ipynb](03.%20Derivation%20of%20operational%20insights%20and%20policy%20implications.ipynb): SHAP explanations, business insights.
+  - [04. Deployment readiness and integration.ipynb](04.%20Deployment%20readiness%20and%20integration.ipynb): Model persistence (Pickle/Joblib), pipeline integration.
+
+- **Data:** A healthcare facility dataset with features like age, admission type, severity, etc. (not included; synthetic or proprietary).
