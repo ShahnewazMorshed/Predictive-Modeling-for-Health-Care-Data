@@ -41,4 +41,4 @@ For full details, [Methodology PDF](Methodology.pdf).
   - [03. Derivation of operational insights and policy implications.ipynb](03.%20Derivation%20of%20operational%20insights%20and%20policy%20implications.ipynb): SHAP explanations, business insights.
   - [04. Deployment readiness and integration.ipynb](04.%20Deployment%20readiness%20and%20integration.ipynb): Model persistence (Pickle/Joblib), pipeline integration.
 
-- **Data:** A healthcare facility dataset with features like age, admission type, severity, etc. (not included; synthetic or proprietary).
+- **Data:** Patient admission records from a secondary-level healthcare facility, including demographic details, admission information, and clinical indicators. All records were anonymized, and pseudonyms were used for identifiers to protect confidentiality.
