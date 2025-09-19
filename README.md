@@ -35,7 +35,7 @@ For full details, [Methodology](Methodology.pdf).
 ## Project Structure
 
 - **Notebooks:**
-  - [Notebook 01 – Statistical Characterization of LOS](https://github.com/ShahnewazMorshed/Predictive-Modeling-for-Health-Care-Data/blob/main/Notebook%2001%20-%20Statistical%20characterization%20of%20LOS.ipynb)
+  - [Notebook 01. Statistical Characterization of LOS](https://github.com/ShahnewazMorshed/Predictive-Modeling-for-Health-Care-Data/blob/main/Notebook%2001%20-%20Statistical%20characterization%20of%20LOS.ipynb)
 : Univariate/bivariate analysis, GLM (Poisson/NB).
   - [Notebook 02. Development and validation of predictive ML models.ipynb](https://github.com/ShahnewazMorshed/Predictive-Modeling-for-Health-Care-Data/blob/main/Notebook%2002.%20Development%20and%20validation%20of%20predictive%20ML%20models.ipynb): Ensemble models, hyperparameter tuning, cross-validation.
   - [Notebook 03. Derivation of operational insights and policy implications.ipynb](https://github.com/ShahnewazMorshed/Predictive-Modeling-for-Health-Care-Data/blob/main/Notebook%2003.%20Derivation%20of%20operational%20insights%20and%20policy%20implications.ipynb): SHAP explanations, business insights.
