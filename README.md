@@ -34,7 +34,7 @@ For full details, [Methodology](Methodology.pdf).
 
 ## Project Structure
 
-- **Data:** Patient admission records from a secondary-level healthcare facility, including demographic details, admission information, and clinical indicators. All records were anonymized, and pseudonyms were used for identifiers to protect confidentiality.
+- **[Data](https://github.com/ShahnewazMorshed/Predictive-Modeling-for-Health-Care-Data/tree/main/Data):** Patient admission records from a secondary-level healthcare facility, including demographic details, admission information, and clinical indicators. All records were anonymized, and pseudonyms were used for identifiers to protect confidentiality.
 
 - **Python Notebooks:**
   - [Notebook 01. Statistical Characterization of LOS](https://github.com/ShahnewazMorshed/Predictive-Modeling-for-Health-Care-Data/blob/main/Notebook%2001.%20Statistical%20characterization%20of%20LOS.ipynb): Univariate/bivariate analysis, GLM (Poisson/NB).
