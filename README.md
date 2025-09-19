@@ -28,7 +28,7 @@ A statistical framework was developed to predict how long patients are likely to
 
 The analysis first employed Poisson regression as the canonical model for count data, extended to Negative Binomial for overdispersion handling, and Zero-Inflated variants for excess short stays. Penalized regression (LASSO/Elastic Net) is applied for feature selection in high-dimensional spaces. Tree-based ensemble learning approaches were applied to capture complex nonlinear patterns.
 
-For full details, [Methodology PDF](Methodology.pdf).
+For full details, [Methodology](Methodology.pdf).
 
 ---
 
